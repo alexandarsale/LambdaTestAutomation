@@ -9,22 +9,23 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage {
 
     /* Local Selenium Grid */
-     private WebDriver driver;
+    private WebDriver driver;
 
-    @FindBy(how = How.XPATH, using = "//a[.='Start Free Testing']")
+    /* Locating Start Testing Button on HomePage*/
+    @FindBy(how = How.CSS, using = "#header a[href*='register']")
     private WebElement StartTestingButton;
 
     /* Initializing WebElements in the cunstroctor */
     /* The URL is set to lambdatest.com HomePage so that further
      tests can be carried out on the web element variables of that page. */
-    public HomePage(WebDriver driver){
+    public HomePage(WebDriver driver) {
         this.driver = driver;
         driver.get(Utils.HOME_PAGE_URL);
         PageFactory.initElements(driver, this);
     }
 
 
-    public void clickOnStartTestingButton(){
+    public void clickOnStartTestingButton() {
         StartTestingButton.click();
     }
 
